@@ -203,19 +203,23 @@
 </article>
 
         <!-- Seminar -->
-        <article class="group border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
-  <div class="p-4 flex flex-col gap-3">
-    <!-- 标题（可点击，跳转到新页面） -->
-    <h3 class="font-semibold text-base">
-      <a href="master-thesis.html" class="hover:underline">
+        <div class="project-card relative group border rounded-xl p-5 shadow hover:shadow-lg transition cursor-default">
+
+  <!-- 标题（带悬停说明） -->
+  <h3 class="text-lg font-semibold text-indigo-700 group-hover:underline relative">
             Seminar – Machine Learning for Congestion Control
-          </a>
+
     </h3>
-           <p class="text-xs text-slate-500 dark:text-slate-400">Apr 2023 – Jul 2023</p>
-          <p class="text-sm text-slate-600 dark:text-slate-300">
-            Applied predictive ML algorithms to study congestion control schemes and compared them
-            with rule-based methods.
-          </p>
+            <!-- 悬停时显示的说明文字 Tooltip -->
+  <div class="absolute left-0 top-full mt-2 w-64 bg-white shadow-lg border border-slate-200 rounded-lg p-3 text-sm opacity-0 pointer-events-none
+              group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-200 z-20">
+      Explored signal processing techniques for power quality analysis, 
+      including time-frequency transformation and disturbance data characterization.
+  </div>
+
+  <p class="text-slate-600 text-sm mt-1">2024 · Academic Research</p>
+  
+</div>
           <img
       src="images/congestion-control.jpg"
       alt="congestion control"
