@@ -16,6 +16,7 @@
     <div class="mt-8 space-y-4">
 
       <!-- Intern 经验：默认展开 -->
+      <!-- Intern 经验：默认展开，下面有三个竖直小标签 -->
       <section id="intern" class="border border-slate-200 rounded-xl bg-white shadow-sm">
         <button
           type="button"
@@ -33,60 +34,36 @@
           <span id="icon-intern" class="text-xl text-slate-500">−</span>
         </button>
 
-     <div id="panel-intern"
-     class="px-5 pb-5 pt-1 text-sm text-slate-700 border-t border-slate-100 hidden">
+        <!-- 展开内容区域：默认是展开的，但里面没有细节内容 -->
+        <div id="panel-intern"
+             class="px-5 pb-5 pt-1 text-sm text-slate-700 border-t border-slate-100">
 
-  <!-- Intern 内部的小分类按钮 -->
-  <!-- Intern 内部子分类，竖直布局 -->
-<div class="mt-4 flex flex-col gap-3 w-full max-w-sm">
+          <!-- Intern 内部子分类，竖直布局 -->
+          <div class="mt-4 flex flex-col gap-3 w-full max-w-sm">
+            <button type="button" data-intern="optera" onclick="showInternSection('optera')"
+              class="intern-tab border rounded-xl px-4 py-2 text-sm text-left font-medium text-slate-700
+                     hover:border-indigo-400 hover:bg-indigo-50 transition">
+              Optera &amp; REST-API
+            </button>
 
-  <button type="button" data-intern="optera" onclick="showInternSection('optera')"
-    class="intern-tab border rounded-xl px-4 py-2 text-sm text-left font-medium text-slate-700
-           hover:border-indigo-400 hover:bg-indigo-50 transition">
-    Optera & REST-API
-  </button>
+            <button type="button" data-intern="ga" onclick="showInternSection('ga')"
+              class="intern-tab border rounded-xl px-4 py-2 text-sm text-left text-slate-700
+                     hover:border-indigo-400 hover:bg-indigo-50 transition">
+              Genetic Algorithm
+            </button>
 
-  <button type="button" data-intern="ga" onclick="showInternSection('ga')"
-    class="intern-tab border rounded-xl px-4 py-2 text-sm text-left text-slate-700
-           hover:border-indigo-400 hover:bg-indigo-50 transition">
-    Genetic Algorithm
-  </button>
+            <button type="button" data-intern="libs" onclick="showInternSection('libs')"
+              class="intern-tab border rounded-xl px-4 py-2 text-sm text-left text-slate-700
+                     hover:border-indigo-400 hover:bg-indigo-50 transition">
+              Python Libraries Used
+            </button>
+          </div>
 
-  <button type="button" data-intern="libs" onclick="showInternSection('libs')"
-    class="intern-tab border rounded-xl px-4 py-2 text-sm text-left text-slate-700
-           hover:border-indigo-400 hover:bg-indigo-50 transition">
-    Python Libraries Used
-  </button>
-
-</div>
-    <button type="button"
-            data-intern="optera"
-            onclick="showInternSection('optera')"
-            class="intern-tab rounded-full border border-indigo-300 bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">
-      Optera & REST-API
-    </button>
-    <button type="button"
-            data-intern="ga"
-            onclick="showInternSection('ga')"
-            class="intern-tab rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700 hover:border-indigo-300">
-      Genetic Algorithm
-    </button>
-    <button type="button"
-            data-intern="libs"
-            onclick="showInternSection('libs')"
-            class="intern-tab rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700 hover:border-indigo-300">
-      Python Libraries
-    </button>
-  </div>
-
-  <!-- 显示具体内容的区域：默认显示 Optera -->
-  <div id="intern-detail" class="mt-4 space-y-6">
-    <!-- 默认内容会由 JS 填充 -->
-  </div>
-</div>
-  </div>
-</div>
+          <!-- 具体内容显示区：初始为空，点击上面按钮后才填充 -->
+          <div id="intern-detail" class="mt-4 space-y-6"></div>
+        </div>
       </section>
+
 
       <!-- Electrical Engineer 经验：先收起，只显示标题 -->
       <section id="electrical" class="border border-slate-200 rounded-xl bg-white shadow-sm">
@@ -126,7 +103,8 @@
     </div>
   </div>
 
-  <script>
+    <script>
+    // 展开 / 收起 Intern & Electrical 这两个大卡片
     function togglePanel(id) {
       const panel = document.getElementById('panel-' + id);
       const icon = document.getElementById('icon-' + id);
@@ -140,111 +118,104 @@
         icon.textContent = '+';
       }
     }
-function showInternSection(key) {
-  const box = document.getElementById('intern-detail');
-  const tabs = document.querySelectorAll('.intern-tab');
 
-  const content = {
-    optera: `
-      <div class="border-2 border-blue-600 rounded-xl p-4 bg-blue-50">
-        <h3 class="font-semibold text-base text-blue-800 mb-2">
-          IAV Optera &amp; REST-API
-        </h3>
-        <p class="mb-2">
-          Worked with IAV Optera as the web-based frontend and its REST API
-          to automate grid studies and optimisation runs.
-        </p>
-        <ul class="list-disc list-inside space-y-1">
-          <li>Create projects with defined input data and select optimisation functions.</li>
-          <li>Run load-flow calculations, detect disconnected points and branch joints.</li>
-          <li>Use REST API (GET / POST / PUT / DELETE) to trigger studies and fetch results programmatically.</li>
-        </ul>
-        <div class="mt-3">
-          <img src="images/optera.png"
-               alt="IAV Optera and REST API"
-               class="max-w-[600px] w-full mx-auto rounded-lg border shadow-sm" />
-        </div>
-      </div>
-    `,
+    // Intern 里三个小分类：Optera / GA / Libraries
+    function showInternSection(key) {
+      const box = document.getElementById('intern-detail');
+      const tabs = document.querySelectorAll('.intern-tab');
 
-    ga: `
-      <div class="border-2 border-blue-600 rounded-xl p-4 bg-blue-50">
-        <h3 class="font-semibold text-base text-blue-800 mb-2">
-          Genetic Algorithm for Grid Optimisation
-        </h3>
-        <p class="mb-2">
-          Implemented a genetic algorithm (GA) to optimise grid topology and loading,
-          based on power-flow fitness values and engineering constraints.
-        </p>
-        <ul class="list-disc list-inside space-y-1">
-          <li>Modelled individuals / chromosomes as network configurations.</li>
-          <li>Used selection, crossover and mutation operators to evolve solutions.</li>
-          <li>Defined fitness functions using voltage profiles, loading and workload limits.</li>
-          <li>Designed the GA process: initial population, parent selection, variation,
-              offspring and termination criteria.</li>
-        </ul>
-        <div class="mt-3 grid gap-3 md:grid-cols-2">
-          <img src="images/ga_concept.png"
-               alt="Genetic algorithm concept"
-               class="w-full rounded-lg border shadow-sm" />
-          <img src="images/ga_process.png"
-               alt="Genetic algorithm process"
-               class="w-full rounded-lg border shadow-sm" />
-        </div>
-      </div>
-    `,
+      const content = {
+        optera: `
+          <div class="border-2 border-blue-600 rounded-xl p-4 bg-blue-50">
+            <h3 class="font-semibold text-base text-blue-800 mb-2">
+              IAV Optera &amp; REST-API
+            </h3>
+            <p class="mb-2">
+              Worked with IAV Optera as the web-based frontend and its REST API
+              to automate grid studies and optimisation runs.
+            </p>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Create projects with defined input data and select optimisation functions.</li>
+              <li>Run load-flow calculations, detect disconnected points and branch joints.</li>
+              <li>Use REST API (GET / POST / PUT / DELETE) to trigger studies and fetch results programmatically.</li>
+            </ul>
+            <div class="mt-3">
+              <img src="images/optera.png"
+                   alt="IAV Optera and REST API"
+                   class="max-w-[600px] w-full mx-auto rounded-lg border shadow-sm" />
+            </div>
+          </div>
+        `,
 
-    libs: `
-      <div class="border-2 border-blue-600 rounded-xl p-4 bg-blue-50">
-        <h3 class="font-semibold text-base text-blue-800 mb-2">
-          Python Libraries Used
-        </h3>
-        <p class="mb-2">
-          In this internship I relied on a small toolkit of Python libraries for data handling,
-          optimisation and integration with Optera.
-        </p>
-        <ul class="list-disc list-inside space-y-1">
-          <li><strong>pandas</strong>: tabular data handling, scenario tables, result export.</li>
-          <li><strong>NumPy</strong>: vectorised numerical operations for power-flow calculations.</li>
-          <li><strong>SciPy</strong>: optimisation helpers and numerical routines.</li>
-          <li><strong>pandapower</strong>: modelling and simulation of electrical power networks.</li>
-          <li><strong>requests</strong>: HTTP client for calling Optera REST APIs.</li>
-          <li><strong>pygad</strong>: framework for implementing the genetic algorithm optimisation.</li>
-        </ul>
-      </div>
-    `
-  };
+        ga: `
+          <div class="border-2 border-blue-600 rounded-xl p-4 bg-blue-50">
+            <h3 class="font-semibold text-base text-blue-800 mb-2">
+              Genetic Algorithm for Grid Optimisation
+            </h3>
+            <p class="mb-2">
+              Implemented a genetic algorithm (GA) to optimise grid topology and loading,
+              based on power-flow fitness values and engineering constraints.
+            </p>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Modelled individuals / chromosomes as network configurations.</li>
+              <li>Used selection, crossover and mutation operators to evolve solutions.</li>
+              <li>Defined fitness functions using voltage profiles, loading and workload limits.</li>
+              <li>Designed the GA process: initial population, parent selection, variation,
+                  offspring and termination criteria.</li>
+            </ul>
+            <div class="mt-3 grid gap-3 md:grid-cols-2">
+              <img src="images/ga_concept.png"
+                   alt="Genetic algorithm concept"
+                   class="w-full rounded-lg border shadow-sm" />
+              <img src="images/ga_process.png"
+                   alt="Genetic algorithm process"
+                   class="w-full rounded-lg border shadow-sm" />
+            </div>
+          </div>
+        `,
 
-  box.innerHTML = content[key];
+        libs: `
+          <div class="border-2 border-blue-600 rounded-xl p-4 bg-blue-50">
+            <h3 class="font-semibold text-base text-blue-800 mb-2">
+              Python Libraries Used
+            </h3>
+            <p class="mb-2">
+              In this internship I relied on a small toolkit of Python libraries for data handling,
+              optimisation and integration with Optera.
+            </p>
+            <ul class="list-disc list-inside space-y-1">
+              <li><strong>pandas</strong>: tabular data handling, scenario tables, result export.</li>
+              <li><strong>NumPy</strong>: vectorised numerical operations for power-flow calculations.</li>
+              <li><strong>SciPy</strong>: optimisation helpers and numerical routines.</li>
+              <li><strong>pandapower</strong>: modelling and simulation of electrical power networks.</li>
+              <li><strong>requests</strong>: HTTP client for calling Optera REST APIs.</li>
+              <li><strong>pygad</strong>: framework for implementing the genetic algorithm optimisation.</li>
+            </ul>
+          </div>
+        `
+      };
 
-  // 更新小分类按钮高亮
-  tabs.forEach(tab => {
-    const active = tab.dataset.intern === key;
-    tab.classList.toggle("border-indigo-500", active);
-    tab.classList.toggle("bg-indigo-50", active);
-    tab.classList.toggle("text-indigo-700", active);
-  });
-}
+      // 点击标签时更新右侧内容
+      box.innerHTML = content[key];
 
-document.addEventListener("DOMContentLoaded", () => {
-  // ❗保持为空，不自动 showInternSection
-});
-}
-    // 如果带锚点访问，如 professional-experience.html#electrical，则默认展开对应项
+      // 标签高亮状态
+      tabs.forEach(tab => {
+        const active = tab.dataset.intern === key;
+        tab.classList.toggle("border-indigo-500", active);
+        tab.classList.toggle("bg-indigo-50", active);
+        tab.classList.toggle("text-indigo-700", active);
+      });
+    }
+
+    // 页面加载时：
     document.addEventListener('DOMContentLoaded', () => {
-  // 默认填充 intern 的第一个小分类内容
-  const internPanel = document.getElementById('panel-intern');
-  if (!internPanel.classList.contains('hidden')) {
-    
-  } else {
-    // 即使一开始是隐藏的，也先准备好内容，展开时就直接有
-    showInternSection('optera');
-  }
-
-  if (location.hash === '#electrical') {
-    togglePanel('electrical');
-  }
-});
+      // 不主动显示任何 intern 细节，等你点击子标签
+      // 如果带 #electrical，就自动展开电气工程那一条
+      if (location.hash === '#electrical') {
+        togglePanel('electrical');
+      }
+    });
   </script>
+
 </body>
 </html>
