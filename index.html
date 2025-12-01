@@ -66,11 +66,10 @@
       <div class="flex items-center justify-between h-16">
         <a href="#home" class="font-semibold tracking-tight text-lg">Rui Wang</a>
         <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="#about" class="hover:opacity-80" data-i18n="nav.about">About</a>
-          <a href="#resume" class="hover:opacity-80" data-i18n="nav.resume">Resume</a>
-          <a href="#projects" class="hover:opacity-80" data-i18n="nav.projects">Projects</a>
-          <a href="#publications" class="hover:opacity-80" data-i18n="nav.publications">Publications</a>
-          <a href="#contact" class="hover:opacity-80" data-i18n="nav.contact">Contact</a>
+          <a href="#aboutme" class="hover:opacity-80" data-i18n="nav.aboutme">About Me</a>
+<a href="#projects" class="hover:opacity-80" data-i18n="nav.projects">Projects</a>
+<a href="#publications" class="hover:opacity-80" data-i18n="nav.publications">Publications</a>
+<a href="#contact" class="hover:opacity-80" data-i18n="nav.contact">Contact</a>
         </nav>
         <div class="flex items-center gap-2">
           <button id="themeToggle" class="rounded-xl border border-slate-200 dark:border-slate-800 px-3 py-1 text-xs hover:bg-slate-50 dark:hover:bg-slate-900" aria-label="Toggle theme">🌙</button>
@@ -115,71 +114,56 @@
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="py-16 border-t border-slate-200/60 dark:border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-10">
-      <div>
-        <h2 class="text-2xl font-semibold" data-i18n="about.title">About</h2>
-      </div>
-      <div class="md:col-span-2">
-        <p class="text-slate-600 dark:text-slate-300" data-i18n="about.text">Skilled in Python and C; experienced with REST API integration, Linux/HPC, and Git. Applied PyTorch models to real datasets in power systems and communication networks; collaborative in agile, international teams.</p>
-        <ul class="mt-6 grid sm:grid-cols-2 gap-2 text-sm">
-          <li><span class="font-medium" data-i18n="about.skills">Skills</span>: Python, C/C++, SQL, Bash, PyTorch, NumPy, Pandas, FastAPI, Git, GitLab CI/CD, Docker (basic)</li>
-          <li><span class="font-medium" data-i18n="about.domains">Domains</span>: Power Systems, Time Series, Optimization, Signal Processing, Communications</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Resume -->
-  <section id="resume" class="py-16 border-t border-slate-200/60 dark:border-slate-800">
+  <!-- About Me -->
+  <section id="about me" class="py-16 border-t border-slate-200/60 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="flex items-center justify-between">
-        <h2 class="text-2xl font-semibold" data-i18n="resume.title">Resume</h2>
-        <a href="/cv-RW.pdf" download class="text-sm underline underline-offset-4" data-i18n="resume.download">Download PDF</a>
-      </div>
+<div class="flex items-center justify-between">
+<h2 class="text-2xl font-semibold" data-i18n="resume.title">About Me</h2>
+<a href="/cv-RW.pdf" download class="text-sm underline underline-offset-4" data-i18n="resume.download">Download PDF</a>
+</div>
 
-      <div class="mt-8 grid md:grid-cols-2 gap-8">
-        <div>
-          <h3 class="text-lg font-semibold" data-i18n="resume.education">Education</h3>
-          <div class="mt-4 space-y-4">
-            <article class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
-              <h4 class="font-medium">M.Sc. Electrical Engineering – RWTH Aachen University</h4>
-              <p class="text-sm text-slate-500 dark:text-slate-400">Oct 2021 – Oct 2025 · Aachen, Germany</p>
-              <p class="mt-2 text-sm">Focus on AI for power systems; coursework and research in ML, optimization, and signal processing.</p>
-            </article>
-            <article class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
-              <h4 class="font-medium">B.Sc. Communication Engineering – Chongqing University</h4>
-              <p class="text-sm text-slate-500 dark:text-slate-400">Sep 2013 – Jun 2017 · Chongqing, China</p>
-              <p class="mt-2 text-sm">Designed and simulated RF/analog circuits; built wideband balanced bandpass filters.</p>
-            </article>
-          </div>
-        </div>
-        <div>
-          <h3 class="text-lg font-semibold" data-i18n="resume.experience">Experience</h3>
-          <div class="mt-4 space-y-4">
-            <article class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
-              <h4 class="font-medium">Software Engineer Intern — Grid Optimization · IAV GmbH</h4>
-              <p class="text-sm text-slate-500 dark:text-slate-400">Feb 2024 – Aug 2024 · Gifhorn, Germany</p>
-              <ul class="mt-2 list-disc list-inside text-sm space-y-1">
-                <li>Built Python-based genetic algorithms integrating RESTful APIs and real-time system models.</li>
-                <li>Optimized forecast models for e-mobility, heat transition, and renewables with robust Git workflows.</li>
-                <li>Automated experiments and created heatmap visualizations with Python data tooling.</li>
-              </ul>
-            </article>
-            <article class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
-              <h4 class="font-medium">Electrical Engineer · Beijing Interconnection Communication Equipment Co., Ltd.</h4>
-              <p class="text-sm text-slate-500 dark:text-slate-400">Apr 2018 – Oct 2020 · Guangzhou, China</p>
-              <ul class="mt-2 list-disc list-inside text-sm space-y-1">
-                <li>Repaired fiber‑optic repeaters and switches; performed circuit measurement and soldering.</li>
-                <li>Characterized power converters/inverters; collaborated across teams to diagnose system issues.</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+
+<div class="mt-8 grid md:grid-cols-2 gap-8">
+<div>
+<h3 class="text-lg font-semibold" data-i18n="resume.education">Education</h3>
+<div class="mt-4 space-y-4">
+<article class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
+<h4 class="font-medium">M.Sc. Electrical Engineering – RWTH Aachen University</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Oct 2021 – Oct 2025 · Aachen, Germany</p>
+<p class="mt-2 text-sm">Focus on AI for power systems; coursework and research in ML, optimization, and signal processing.</p>
+</article>
+<article class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
+<h4 class="font-medium">B.Sc. Communication Engineering – Chongqing University</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Sep 2013 – Jun 2017 · Chongqing, China</p>
+<p class="mt-2 text-sm">Designed and simulated RF/analog circuits; built wideband balanced bandpass filters.</p>
+</article>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold" data-i18n="resume.experience">Experience</h3>
+<div class="mt-4 space-y-4">
+<article class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
+<h4 class="font-medium">Software Engineer Intern — Grid Optimization · IAV GmbH</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Feb 2024 – Aug 2024 · Gifhorn, Germany</p>
+<ul class="mt-2 list-disc list-inside text-sm space-y-1">
+<li>Built Python-based genetic algorithms integrating RESTful APIs and real-time system models.</li>
+<li>Optimized forecast models for e-mobility, heat transition, and renewables with robust Git workflows.</li>
+<li>Automated experiments and created heatmap visualizations with Python data tooling.</li>
+</ul>
+</article>
+<article class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
+<h4 class="font-medium">Electrical Engineer · Beijing Interconnection Communication Equipment Co., Ltd.</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Apr 2018 – Oct 2020 · Guangzhou, China</p>
+<ul class="mt-2 list-disc list-inside text-sm space-y-1">
+<li>Repaired fiber‑optic repeaters and switches; performed circuit measurement and soldering.</li>
+<li>Characterized power converters/inverters; collaborated across teams to diagnose system issues.</li>
+</ul>
+</article>
+</div>
+</div>
+</div>
+</div>
+</section>
 
   <!-- Projects -->
   <section id="projects" class="py-16 border-t border-slate-200/60 dark:border-slate-800">
@@ -261,7 +245,7 @@
             </div>
             <div class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
               <div class="font-medium">Open to</div>
-              <div data-i18n="contact.openTo">Internships · Full-time (AI/Power)</div>
+              <div data-i18n="contact.openTo">Internships · Full-time (AI / Software)</div>
             </div>
           </div>
         </div>
@@ -303,24 +287,21 @@
     // ===== i18n (EN/DE) =====
     const i18n = {
       en: {
-        'nav.about': 'About',
-        'nav.resume': 'Resume',
+        'nav.aboutme': 'About Me',
+        
         'nav.projects': 'Projects',
         'nav.publications': 'Publications',
         'nav.contact': 'Contact',
         'nav.hireme': 'Hire me',
-        'hero.title': 'Hi, I’m Rui Wang — Software Engineer (Python · AI · Energy Systems)',
-        'hero.subtitle': 'M.Sc. in Computer Engineering, RWTH Aachen. Strong programming background in Python and C, experienced in building scalable applications, REST APIs, and AI models for real-world systems.',
+        'hero.title': 'Hi, I’m Rui Wang!',
+        'hero.subtitle': 'M.Sc. in Computer Engineering, RWTH Aachen. Working with Python for automation, modeling and data-driven workflows',
         'hero.viewProjects': 'View Projects',
         'hero.downloadCV': 'Download CV',
-        'about.title': 'About',
-        'about.text': 'Skilled in Python and C; experienced with REST API integration, Linux/HPC, and Git. Applied PyTorch models to real datasets in power systems and communication networks; collaborative in agile, international teams.',
-        'about.skills': 'Skills',
-        'about.domains': 'Domains',
-        'resume.title': 'Resume',
-        'resume.download': 'Download PDF',
-        'resume.education': 'Education',
-        'resume.experience': 'Experience',
+        
+        'aboutme.title': 'About Me',
+        'aboutme.download': 'Download PDF',
+        'aboutme.education': 'Education',
+        'aboutme.experience': 'Experience',
         'projects.title': 'Projects',
         'pubs.title': 'Publications',
         'pubs.note': 'Coming soon.',
@@ -334,38 +315,7 @@
         'footer.projects': 'Projects',
         'footer.contact': 'Contact'
       },
-      de: {
-        'nav.about': 'Über mich',
-        'nav.resume': 'Lebenslauf',
-        'nav.projects': 'Projekte',
-        'nav.publications': 'Publikationen',
-        'nav.contact': 'Kontakt',
-        'nav.hireme': 'Kontakt aufnehmen',
-        'hero.title': 'Hallo, ich bin Rui Wang — ich baue KI für Smart Grids',
-        'hero.subtitle': 'M.Sc.-Student (RWTH Aachen). Software-/KI‑Engineer mit Praxis in Energiesystemen, REST‑APIs und datenintensiven Python‑Lösungen.',
-        'hero.viewProjects': 'Projekte ansehen',
-        'hero.downloadCV': 'Lebenslauf herunterladen',
-        'about.title': 'Über mich',
-        'about.text': 'Sicher in Python und C; Erfahrung mit REST‑API‑Integration, Linux/HPC und Git. PyTorch‑Modelle auf reale Datensätze in Energienetzen und Kommunikationsnetzen angewendet; teamorientiert in agilen, internationalen Umgebungen.',
-        'about.skills': 'Fähigkeiten',
-        'about.domains': 'Domänen',
-        'resume.title': 'Lebenslauf',
-        'resume.download': 'PDF herunterladen',
-        'resume.education': 'Ausbildung',
-        'resume.experience': 'Berufserfahrung',
-        'projects.title': 'Projekte',
-        'pubs.title': 'Publikationen',
-        'pubs.note': 'Folgt in Kürze.',
-        'contact.title': 'Kontakt',
-        'contact.name': 'Name',
-        'contact.message': 'Nachricht',
-        'contact.send': 'Senden',
-        'contact.note': 'Bevorzugst du E‑Mail? Schreib an ',
-        'contact.openTo': 'Praktika · Vollzeit (KI/Energie)',
-        'footer.about': 'Über mich',
-        'footer.projects': 'Projekte',
-        'footer.contact': 'Kontakt'
-      }
+      
     };
 
     const langSelect = document.getElementById('langSelect');
@@ -385,12 +335,12 @@
         }
       });
       localStorage.setItem('lang', lang);
-      langSelect.value = lang;
+      //langSelect.value = lang;
       document.documentElement.lang = lang === 'de' ? 'de' : 'en';
     }
 
-    langSelect.addEventListener('change', (e) => applyI18n(e.target.value));
-    applyI18n(localStorage.getItem('lang') || 'en');
+    //langSelect.addEventListener('change', (e) => applyI18n(e.target.value));
+    applyI18n('en');
 
     // Misc
     document.getElementById('year').textContent = new Date().getFullYear();
