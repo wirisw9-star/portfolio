@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Thesis – Power Quality AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+  <div class="max-w-6xl mx-auto py-16 px-6 grid grid-cols-[280px_1fr] gap-10">
+
+    <!-- Left process buttons -->
+    <div class="space-y-3">
+      <button onclick="showInfo('dataGen')" class="w-full py-3 px-4 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700">📁 Data Generation</button>
+      <button onclick="showInfo('preprocess')" class="w-full py-3 px-4 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700">🔧 Pre-processing</button>
+      <button onclick="showInfo('feature')" class="w-full py-3 px-4 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700">🧩 Feature Extraction</button>
+      <button onclick="showInfo('cnn')" class="w-full py-3 px-4 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700">🧠 CNN Classification</button>
+      <button onclick="showInfo('prediction')" class="w-full py-3 px-4 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700">📡 Real-time Prediction</button>
+    </div>
+
+    <!-- Right content display -->
+    <div id="infoBox" class="p-6 bg-white border rounded-xl shadow text-lg text-gray-700">
+      👈 Click items on the left to view details of the thesis workflow.
+    </div>
+
+  </div>
+
+  <script>
+    function showInfo(id) {
+      const content = {
+        dataGen: `<h2 class='font-bold text-xl mb-3'>📁 Data Generation</h2><p>Simulated & MATLAB-generated PQ disturbances, including multi-stage compounds. Supports scalable data expansion.</p>` ,
+        preprocess:`<h2 class='font-bold text-xl mb-3'>🔧 Pre-processing</h2><p>Normalization + Hilbert transform + noise injection (0–50 dB). Data is segmented into train/val/test sets.</p>` ,
+        feature:`<h2 class='font-bold text-xl mb-3'>🧩 Feature Extraction</h2><p>FFT, STFT, WT, S-transform used to capture time-frequency signatures to distinguish PQ disturbances.</p>` ,
+        cnn:`<h2 class='font-bold text-xl mb-3'>🧠 CNN Classification</h2><p>2D CNN runs on HHT-based input images, learns features automatically. Achieved high classification accuracy.</p>` ,
+        prediction:`<h2 class='font-bold text-xl mb-3'>📡 Real-time Prediction</h2><p>Sliding-window prediction pipeline, supports real-time signal streaming and event detection.</p>` ,
+      };
+      document.getElementById("infoBox").innerHTML = content[id];
+    }
+  </script>
+
+</body>
+</html>
