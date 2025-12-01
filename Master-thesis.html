@@ -83,8 +83,27 @@
   <script>
     function showInfo(id) {
       const content = {
-        dataGen: `<h2 class='font-bold text-xl mb-3'>📁 Data Generation</h2><p>Simulated & MATLAB-generated PQ disturbances, including multi-stage compound signals. Supports scalable synthetic expansion for training.</p>`,
-        preprocess: `
+        dataGen: `<div class="border-2 border-blue-600 rounded-xl p-5 bg-blue-50">
+    <h2 class="font-bold text-xl mb-3 text-blue-800">Data Generation</h2>
+    <ul class="list-disc list-inside text-sm text-slate-900 space-y-1 leading-relaxed">
+      <li>A database of single and multiple PQ disturbances is created.</li>
+      <li>Python-based disturbance generation using mathematical expressions.</li>
+      <li>Simulated data (MATLAB) are advantageous and close to real measurements.</li>
+      <li>Numerical models are used to represent the behaviour of the real grid.</li>
+      <li>Multiple PQ disturbances are generated from summation of single-stage models.</li>
+    </ul>
+  </div>
+
+  <!-- 一图展示整体系统结构：Source–Transformer–Line–Load–Disturbances -->
+  <div class="mt-4">
+    <img src="images/Matlab.png"
+         class="w-full rounded-lg border shadow"
+         alt="Data generation scheme: source, transformer, line, load and disturbances" />
+    <p class="mt-2 text-center text-xs text-slate-600">
+      Source · Transformer · Line · Disturbances · Load
+    </p>
+  </div>
+`,
   <div class="border-2 border-blue-600 rounded-xl p-4 bg-blue-50">
     <h2 class="font-bold text-xl mb-2 text-blue-800">Pre-processing</h2>
     <ul class="list-disc list-inside text-sm text-slate-900 space-y-1">
