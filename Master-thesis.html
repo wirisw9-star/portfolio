@@ -15,28 +15,62 @@
     <!-- Left process buttons as pipeline -->
 
     <!-- Left process buttons -->
-    <div class="space-y-4">
-      <button data-step="dataGen" onclick="showInfo('dataGen')" class="step-btn w-full flex items-center gap-3 py-3 px-4 bg-white border border-indigo-200 rounded-lg shadow-sm hover:border-indigo-400 hover:bg-indigo-50 transition">
-        <span class="flex h-7 w-7 items-center justify-center rounded-full bg-indigo-600 text-white text-sm font-semibold">1</span>
-        <span class="text-sm font-medium">Data Generation</span>
-      </button>
-      <button data-step="preprocess" onclick="showInfo('preprocess')" class="step-btn w-full flex items-center gap-3 py-3 px-4 bg-white border border-indigo-200 rounded-lg shadow-sm hover:border-indigo-400 hover:bg-indigo-50 transition">
-        <span class="flex h-7 w-7 items-center justify-center rounded-full bg-indigo-600 text-white text-sm font-semibold">2</span>
-        <span class="text-sm font-medium">Pre-processing</span>
-      </button>
-      <button data-step="feature" onclick="showInfo('feature')" class="step-btn w-full flex items-center gap-3 py-3 px-4 bg-white border border-indigo-200 rounded-lg shadow-sm hover:border-indigo-400 hover:bg-indigo-50 transition">
-        <span class="flex h-7 w-7 items-center justify-center rounded-full bg-indigo-600 text-white text-sm font-semibold">3</span>
-        <span class="text-sm font-medium">Feature Extraction</span>
-      </button>
-      <button data-step="cnn" onclick="showInfo('cnn')" class="step-btn w-full flex items-center gap-3 py-3 px-4 bg-white border border-indigo-200 rounded-lg shadow-sm hover:border-indigo-400 hover:bg-indigo-50 transition">
-        <span class="flex h-7 w-7 items-center justify-center rounded-full bg-indigo-600 text-white text-sm font-semibold">4</span>
-        <span class="text-sm font-medium">CNN Classification</span>
-      </button>
-      <button data-step="prediction" onclick="showInfo('prediction')" class="step-btn w-full flex items-center gap-3 py-3 px-4 bg-white border border-indigo-200 rounded-lg shadow-sm hover:border-indigo-400 hover:bg-indigo-50 transition">
-        <span class="flex h-7 w-7 items-center justify-center rounded-full bg-indigo-600 text-white text-sm font-semibold">5</span>
-        <span class="text-sm font-medium">Real-time Prediction</span>
-      </button>
+<div class="relative">
+  <!-- 竖直流程线 -->
+  <div class="absolute left-5 top-6 bottom-10 w-px bg-slate-300"></div>
+
+  <div class="space-y-4 pl-6">
+    <!-- Training 部分标题 -->
+    <div class="text-xs font-semibold text-slate-500 uppercase tracking-wide">
+      Training
     </div>
+
+    <!-- 1 Data Generation -->
+    <button data-step="dataGen"
+            onclick="showInfo('dataGen')"
+            class="step-btn w-full flex items-center gap-3 py-2.5 px-3 bg-white border border-indigo-200 rounded-lg shadow-sm hover:border-indigo-400 hover:bg-indigo-50 transition">
+      <span class="flex h-7 w-7 items-center justify-center rounded-full bg-indigo-600 text-white text-xs font-semibold">1</span>
+      <span class="text-sm font-medium">Data generation</span>
+    </button>
+
+    <!-- 2 Pre-processing -->
+    <button data-step="preprocess"
+            onclick="showInfo('preprocess')"
+            class="step-btn w-full flex items-center gap-3 py-2.5 px-3 bg-white border border-indigo-200 rounded-lg shadow-sm hover:border-indigo-400 hover:bg-indigo-50 transition">
+      <span class="flex h-7 w-7 items-center justify-center rounded-full bg-indigo-600 text-white text-xs font-semibold">2</span>
+      <span class="text-sm font-medium">Pre-processing</span>
+    </button>
+
+    <!-- 3 Feature extraction -->
+    <button data-step="feature"
+            onclick="showInfo('feature')"
+            class="step-btn w-full flex items-center gap-3 py-2.5 px-3 bg-white border border-indigo-200 rounded-lg shadow-sm hover:border-indigo-400 hover:bg-indigo-50 transition">
+      <span class="flex h-7 w-7 items-center justify-center rounded-full bg-indigo-600 text-white text-xs font-semibold">3</span>
+      <span class="text-sm font-medium">Feature extraction</span>
+    </button>
+
+    <!-- 4 Classifier -->
+    <button data-step="cnn"
+            onclick="showInfo('cnn')"
+            class="step-btn w-full flex items-center gap-3 py-2.5 px-3 bg-white border border-indigo-200 rounded-lg shadow-sm hover:border-indigo-400 hover:bg-indigo-50 transition">
+      <span class="flex h-7 w-7 items-center justify-center rounded-full bg-indigo-600 text-white text-xs font-semibold">4</span>
+      <span class="text-sm font-medium">Classifier (CNN)</span>
+    </button>
+
+    <!-- Prediction 分支标题 -->
+    <div class="pt-2 text-xs font-semibold text-slate-400 uppercase tracking-wide">
+      Prediction
+    </div>
+
+    <!-- 5 Real-time data / data processing 可以代表预测支路 -->
+    <button data-step="prediction"
+            onclick="showInfo('prediction')"
+            class="step-btn w-full flex items-center gap-3 py-2.5 px-3 bg-slate-100 border border-slate-300 rounded-lg shadow-sm hover:border-indigo-400 hover:bg-indigo-50 transition">
+      <span class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-400 text-white text-xs font-semibold">5</span>
+      <span class="text-sm font-medium">Real-time data &amp; processing</span>
+    </button>
+  </div>
+</div>
 
     <!-- Right content display -->
     <div id="infoBox" class="p-6 bg-white border rounded-xl shadow text-lg text-gray-700">
@@ -50,7 +84,27 @@
     function showInfo(id) {
       const content = {
         dataGen: `<h2 class='font-bold text-xl mb-3'>📁 Data Generation</h2><p>Simulated & MATLAB-generated PQ disturbances, including multi-stage compound signals. Supports scalable synthetic expansion for training.</p>`,
-        preprocess: `<h2 class='font-bold text-xl mb-3'>🔧 Pre-processing</h2><p>Normalization + Hilbert transform + noise injection (0–50 dB). Data is segmented into train/val/test sets.</p>`,
+        preprocess: `
+  <div class="border-2 border-blue-600 rounded-xl p-4 bg-blue-50">
+    <h2 class="font-bold text-xl mb-2 text-blue-800">Pre-processing</h2>
+    <ul class="list-disc list-inside text-sm text-slate-900 space-y-1">
+      <li>Normalization: transform signals into a common range.</li>
+      <li>Hilbert Transform (HHT): generate the signal envelope.</li>
+      <li>Noise injection: assign SNR values of 0, 20 and 50 dB.</li>
+      <li>Split into training, validation and test sets.</li>
+    </ul>
+  </div>
+
+  <!-- 波形图区域：你可以用 PPT 导出的图 -->
+  <div class="mt-4">
+    <img src="pqd.png"
+         class="w-full rounded-lg border shadow"
+         alt="PQ waveform examples panel" />
+    <p class="mt-2 text-center text-xs text-slate-600">
+      Pure · Swell · Sag · Harmonics · Flicker · Sag+Flicker · Sag+Harmonics · Swell+Harmonics
+    </p>
+  </div>
+`,
         feature: `<h2 class='font-bold text-xl mb-3'>🧩 Feature Extraction</h2><p>FFT, STFT, WT, and S-transform are used to capture time-frequency signatures that distinguish different PQ disturbances.</p>`,
         cnn: `<h2 class='font-bold text-xl mb-3'>🧠 CNN Classification</h2><p>2D CNN runs on HHT-based input images and automatically learns features. Provides high classification accuracy and robustness.</p>`,
         prediction: `<h2 class='font-bold text-xl mb-3'>📡 Real-time Prediction</h2><p>Sliding-window prediction pipeline that supports real-time signal streaming and PQ event detection.</p>`,
