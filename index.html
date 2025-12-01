@@ -4,16 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rui Wang – Portfolio</title>
-  <meta name="description" content="Rui Wang – Portfolio, Projects, Resume/CV, Publications, and Contact."/>
-  <meta name="author" content="Rui Wang"/>
-  <!-- Open Graph -->
-  <meta property="og:title" content="Rui Wang – Portfolio"/>
-  <meta property="og:description" content="Projects, Resume/CV, and Contact."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:image" content="/og-image.png"/>
-  <meta property="og:url" content="https://your-domain.example/"/>
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="description" content="Rui Wang – personal website: About, Projects, and Contact." />
+  <meta name="author" content="Rui Wang" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -22,327 +14,288 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Noto Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "Arial", "\"Apple Color Emoji\"", "\"Segoe UI Emoji\"", "\"Segoe UI Symbol\""],
+            sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Noto Sans"]
           }
         }
-      },
-      darkMode: 'class'
+      }
     }
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="/favicon.ico" />
-
-  <!-- JSON-LD Schema.org Person -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Rui Wang",
-    "jobTitle": "AI/Software Engineer (Power Systems)",
-    "email": "rui.wang1@rwth-aachen.de",
-    "telephone": "+49 15906479115",
-    "address": {"@type":"PostalAddress","addressLocality":"Aachen","addressCountry":"Germany"},
-    "url": "https://your-domain.example/",
-    "sameAs": [
-      "https://github.com/your-github",
-      "https://www.linkedin.com/in/your-linkedin"
-    ]
-  }
   </script>
 
   <style>
     html { scroll-behavior: smooth; }
     ::-webkit-scrollbar { width: 10px; height: 10px; }
     ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
-    .dark ::-webkit-scrollbar-thumb { background: #334155; }
   </style>
 </head>
-<body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans">
-  <!-- Header / Nav -->
-  <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-slate-950/70 border-b border-slate-200/60 dark:border-slate-800">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex items-center justify-between h-16">
-        <a href="#home" class="font-semibold tracking-tight text-lg">Rui Wang</a>
-        <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="#aboutme" class="hover:opacity-80" data-i18n="nav.aboutme">About Me</a>
-<a href="#projects" class="hover:opacity-80" data-i18n="nav.projects">Projects</a>
-<a href="#publications" class="hover:opacity-80" data-i18n="nav.publications">Publications</a>
-<a href="#contact" class="hover:opacity-80" data-i18n="nav.contact">Contact</a>
-        </nav>
-        <div class="flex items-center gap-2">
-          <button id="themeToggle" class="rounded-xl border border-slate-200 dark:border-slate-800 px-3 py-1 text-xs hover:bg-slate-50 dark:hover:bg-slate-900" aria-label="Toggle theme">🌙</button>
-          <div class="relative">
-            <select id="langSelect" class="appearance-none rounded-xl border border-slate-200 dark:border-slate-800 px-3 py-1 text-xs bg-white dark:bg-slate-900">
-              <option value="en">EN</option>
-              <option value="de">DE</option>
-            </select>
-          </div>
-          <a href="#contact" class="hidden sm:inline-block rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-3 py-1 text-xs font-medium hover:opacity-90" data-i18n="nav.hireme">Hire me</a>
-        </div>
-      </div>
+<body class="bg-white text-slate-900 font-sans">
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="#home" class="font-semibold text-lg tracking-tight">Rui Wang</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#home" class="hover:text-slate-600">Home</a>
+        <a href="#about" class="hover:text-slate-600">About Me</a>
+        <a href="#projects" class="hover:text-slate-600">Projects</a>
+        <a href="#contact" class="hover:text-slate-600">Contact</a>
+      </nav>
     </div>
   </header>
 
   <!-- Hero -->
-  <section id="home" class="relative">
-    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-[3fr_2fr] gap-10 items-center">
+  <section id="home" class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-[3fr_2fr] gap-10 items-center">
       <div>
         <h1 class="text-3xl md:text-5xl font-bold leading-tight">
-  Hi, I’m Rui Wang!
+          Hi, I’m Rui Wang!
         </h1>
-        <p class="mt-4 text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed">
-  M.Sc. in Computer Engineering, RWTH Aachen.<br/>
-  Working with Python for automation, modeling and data-driven workflows. 
-</p>
-        <div class="mt-6 flex gap-3">
-          <a href="#projects" class="rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-4 py-2 text-sm font-medium" data-i18n="hero.viewProjects">View Projects</a>
-          <a id="cvButton" href="/cv-RW.pdf" class="rounded-xl border border-slate-300 dark:border-slate-700 px-4 py-2 text-sm" download data-i18n="hero.downloadCV">Download CV</a>
+        <p class="mt-4 text-slate-600 max-w-xl leading-relaxed">
+          M.Sc. in Electrical Engineering, RWTH Aachen University.<br />
+          I work with Python for automation, modeling, and data-driven workflows in power and electronic systems.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#projects"
+             class="rounded-full bg-slate-900 text-white px-5 py-2 text-sm font-medium hover:bg-slate-800">
+            View Projects
+          </a>
+          <a href="cv-RW.pdf"
+             class="rounded-full border border-slate-300 px-5 py-2 text-sm font-medium hover:bg-slate-50"
+             download>
+            Download CV
+          </a>
         </div>
-        <div class="mt-6 flex flex-wrap gap-4 text-sm">
-         
-          <a href="https://www.linkedin.com/in/rui-wang-590155306/" class="underline underline-offset-4">LinkedIn</a>
-          <a href="mailto:rui.wang1@rwth-aachen.de" class="underline underline-offset-4">rui.wang1@rwth-aachen.de</a>
+
+        <div class="mt-6 flex flex-wrap gap-6 text-sm">
+          <a href="https://www.linkedin.com/in/rui-wang-590155306/" class="underline underline-offset-4">
+            LinkedIn
+          </a>
+          <a href="mailto:rui.wang1@rwth-aachen.de" class="underline underline-offset-4">
+            rui.wang1@rwth-aachen.de
+          </a>
         </div>
       </div>
-      <div class="justify-self-center md:justify-self-end">
-        <img src="IMG_2879-2 (1).png"
-         alt="Rui Wang photo"
-         class="w-56 h-56 md:w-72 md:h-72 rounded-full object-cover shadow-xl"/>
+
+      <div class="flex justify-center md:justify-end">
+        <!-- Replace src with your own image file name -->
+        <img
+          src="IMG_2879-2.png"
+          alt="Rui Wang photo"
+          class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-xl"
+        />
       </div>
     </div>
   </section>
 
   <!-- About Me -->
-  <section id="about me" class="py-16 border-t border-slate-200/60 dark:border-slate-800">
+  <section id="about" class="py-16 border-t border-slate-200">
     <div class="max-w-6xl mx-auto px-4">
-<div class="flex items-center justify-between">
-<h2 class="text-2xl font-semibold" data-i18n="resume.title">About Me</h2>
-<a href="/cv-RW.pdf" download class="text-sm underline underline-offset-4" data-i18n="resume.download">Download PDF</a>
-</div>
+      <h2 class="text-2xl font-semibold">About Me</h2>
+      <p class="mt-4 text-slate-600 max-w-3xl leading-relaxed">
+        I am an electrical engineer skilled in Python-based data automation, modeling, and optimization
+        for power and electronic systems. I enjoy turning measurements, simulations, and models into
+        robust engineering tools.
+      </p>
 
-
-<div class="mt-8 grid md:grid-cols-2 gap-8">
-<div>
-<h3 class="text-lg font-semibold" data-i18n="resume.education">Education</h3>
-<div class="mt-4 space-y-4">
-<article class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
-<h4 class="font-medium">M.Sc. Electrical Engineering – RWTH Aachen University</h4>
-<p class="text-sm text-slate-500 dark:text-slate-400">Oct 2021 – Oct 2025 · Aachen, Germany</p>
-<p class="mt-2 text-sm">Focus on AI for power systems; coursework and research in ML, optimization, and signal processing.</p>
-</article>
-<article class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
-<h4 class="font-medium">B.Sc. Communication Engineering – Chongqing University</h4>
-<p class="text-sm text-slate-500 dark:text-slate-400">Sep 2013 – Jun 2017 · Chongqing, China</p>
-<p class="mt-2 text-sm">Designed and simulated RF/analog circuits; built wideband balanced bandpass filters.</p>
-</article>
-</div>
-</div>
-<div>
-<h3 class="text-lg font-semibold" data-i18n="resume.experience">Experience</h3>
-<div class="mt-4 space-y-4">
-<article class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
-<h4 class="font-medium">Software Engineer Intern — Grid Optimization · IAV GmbH</h4>
-<p class="text-sm text-slate-500 dark:text-slate-400">Feb 2024 – Aug 2024 · Gifhorn, Germany</p>
-<ul class="mt-2 list-disc list-inside text-sm space-y-1">
-<li>Built Python-based genetic algorithms integrating RESTful APIs and real-time system models.</li>
-<li>Optimized forecast models for e-mobility, heat transition, and renewables with robust Git workflows.</li>
-<li>Automated experiments and created heatmap visualizations with Python data tooling.</li>
-</ul>
-</article>
-<article class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
-<h4 class="font-medium">Electrical Engineer · Beijing Interconnection Communication Equipment Co., Ltd.</h4>
-<p class="text-sm text-slate-500 dark:text-slate-400">Apr 2018 – Oct 2020 · Guangzhou, China</p>
-<ul class="mt-2 list-disc list-inside text-sm space-y-1">
-<li>Repaired fiber‑optic repeaters and switches; performed circuit measurement and soldering.</li>
-<li>Characterized power converters/inverters; collaborated across teams to diagnose system issues.</li>
-</ul>
-</article>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-  <!-- Projects -->
-  <section id="projects" class="py-16 border-t border-slate-200/60 dark:border-slate-800">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex items-center justify-between">
-        <h2 class="text-2xl font-semibold" data-i18n="projects.title">Projects</h2>
-        <a href="https://github.com/your-github?tab=repositories" class="text-sm underline underline-offset-4">GitHub</a>
-      </div>
-
-      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <article class="group border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
-          <img class="h-40 w-full object-cover" src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1200&auto=format&fit=crop" alt="Project cover"/>
-          <div class="p-4">
-            <h3 class="font-semibold">Master Thesis – Power Quality AI</h3>
-            <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Collect PQ disturbances via MATLAB/Simulink & synthetic data; detect/classify events with PyTorch (SVM, CNN) and HPC pipelines.</p>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="px-2 py-1 rounded-full border">PyTorch</span>
-              <span class="px-2 py-1 rounded-full border">Python</span>
-              <span class="px-2 py-1 rounded-full border">HPC</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="group border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
-          <img class="h-40 w-full object-cover" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop" alt="Project cover"/>
-          <div class="p-4">
-            <h3 class="font-semibold">Seminar – ML for Congestion Control</h3>
-            <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Surveyed ML vs. traditional congestion control methods; analyzed potentials and limitations in wireless networks.</p>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="px-2 py-1 rounded-full border">Machine Learning</span>
-              <span class="px-2 py-1 rounded-full border">Networking</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="group border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
-          <img class="h-40 w-full object-cover" src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?q=80&w=1200&auto=format&fit=crop" alt="Project cover"/>
-          <div class="p-4">
-            <h3 class="font-semibold">Digital Energy Defense Lab</h3>
-            <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Used Hydra for switch password brute force; set up Python-based IDS; conducted red/blue‑team exercises.</p>
-            <div class="mt-3 flex flex-wrap gap-2 text-xs">
-              <span class="px-2 py-1 rounded-full border">Security</span>
-              <span class="px-2 py-1 rounded-full border">Python</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Publications (optional placeholder) -->
-  <section id="publications" class="py-16 border-t border-slate-200/60 dark:border-slate-800">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl font-semibold" data-i18n="pubs.title">Publications</h2>
-      <p class="mt-4 text-sm text-slate-600 dark:text-slate-300" data-i18n="pubs.note">Coming soon.</p>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="py-16 border-t border-slate-200/60 dark:border-slate-800">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl font-semibold" data-i18n="contact.title">Contact</h2>
-      <div class="mt-6 grid md:grid-cols-2 gap-8">
-        <form class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800" action="mailto:rui.wang1@rwth-aachen.de" method="post" enctype="text/plain">
-          <label class="block text-sm" for="name" data-i18n="contact.name">Name</label>
-          <input id="name" name="name" class="mt-1 w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2" required>
-          <label class="block text-sm mt-4" for="email">Email</label>
-          <input id="email" name="email" type="email" class="mt-1 w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2" required>
-          <label class="block text-sm mt-4" for="message" data-i18n="contact.message">Message</label>
-          <textarea id="message" name="message" rows="5" class="mt-1 w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2" required></textarea>
-          <button class="mt-4 w-full rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-4 py-2 font-medium" data-i18n="contact.send">Send</button>
-        </form>
+      <div class="mt-8 grid md:grid-cols-2 gap-10">
+        <!-- Education -->
         <div>
-          <p class="text-slate-600 dark:text-slate-300" data-i18n="contact.note">Prefer email? Reach me at <a class="underline underline-offset-4" href="mailto:rui.wang1@rwth-aachen.de">rui.wang1@rwth-aachen.de</a>. I usually respond within 1–2 days.</p>
-          <div class="mt-6 grid grid-cols-2 gap-4 text-sm">
-            <div class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
-              <div class="font-medium">Location</div>
-              <div>Aachen, Germany</div>
+          <h3 class="text-lg font-semibold mb-3">Education</h3>
+          <div class="space-y-4 text-sm">
+            <div class="p-4 rounded-2xl border border-slate-200">
+              <div class="font-medium">
+                M.Sc. Electrical Engineering – RWTH Aachen University
+              </div>
+              <div class="text-slate-500">Oct 2021 – Oct 2025 · Aachen, Germany</div>
+              <p class="mt-2 text-slate-600">
+                Focus on AI for power and electronic systems, data analysis, optimization, and signal processing.
+              </p>
             </div>
-            <div class="p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
-              <div class="font-medium">Open to</div>
-              <div data-i18n="contact.openTo">Internships · Full-time (AI / Software)</div>
+            <div class="p-4 rounded-2xl border border-slate-200">
+              <div class="font-medium">
+                B.Sc. Communication Engineering – Chongqing University
+              </div>
+              <div class="text-slate-500">Sep 2013 – Jun 2017 · Chongqing, China</div>
+              <p class="mt-2 text-slate-600">
+                Designed and simulated RF / analog circuits and wideband balanced bandpass filters.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Professional Experience</h3>
+          <div class="space-y-4 text-sm">
+            <div class="p-4 rounded-2xl border border-slate-200">
+              <div class="font-medium">
+                Software Engineer Intern – Grid Optimization, IAV GmbH
+              </div>
+              <div class="text-slate-500">Feb 2024 – Aug 2024 · Gifhorn, Germany</div>
+              <ul class="mt-2 list-disc list-inside text-slate-600 space-y-1">
+                <li>Developed Python tools for grid optimization and network calculation in medium-voltage grids.</li>
+                <li>Designed genetic algorithms for power flow analysis, voltage constraints, and topology optimization.</li>
+                <li>Integrated REST APIs and automated evaluation workflows for network planning results.</li>
+                <li>Built a GUI for data exchange and visualization in PV, heat pump, and e-mobility forecasting.</li>
+              </ul>
+            </div>
+            <div class="p-4 rounded-2xl border border-slate-200">
+              <div class="font-medium">
+                Electrical Engineer – Beijing Interconnection Communication Equipment Co., Ltd.
+              </div>
+              <div class="text-slate-500">Apr 2018 – Oct 2020 · Guangzhou, China</div>
+              <ul class="mt-2 list-disc list-inside text-slate-600 space-y-1">
+                <li>Performed hardware testing and signal analysis for communication and switching systems.</li>
+                <li>Conducted circuit-level measurements and fault detection using advanced test instruments.</li>
+                <li>Prepared technical documentation and performance evaluations for production and customers.</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
-  <footer class="py-10 border-t border-slate-200/60 dark:border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+  <!-- Projects -->
+  <section id="projects" class="py-16 border-t border-slate-200">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-semibold">Projects</h2>
+      <p class="mt-3 text-slate-600 max-w-3xl">
+        A selection of academic and engineering projects related to AI, modeling, and digital energy systems.
+      </p>
+
+      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
+
+        <!-- Master Thesis -->
+        <article class="border border-slate-200 rounded-2xl p-4 flex flex-col">
+          <h3 class="font-semibold mb-1">
+            Master Thesis – AI Models for Power Quality Investigation
+          </h3>
+          <p class="text-slate-500 mb-2">Oct 2024 – May 2025</p>
+          <p class="text-slate-600 flex-1">
+            Developed and validated deep learning models (CNN, SVM) to classify voltage disturbances,
+            designed preprocessing and forecasting pipelines for large time-series datasets, and deployed
+            models on HPC infrastructure.
+          </p>
+          <p class="mt-3 text-xs text-slate-500">
+            Tools: Python, scikit-learn, PyTorch, time-series processing
+          </p>
+        </article>
+
+        <!-- Seminar -->
+        <article class="border border-slate-200 rounded-2xl p-4 flex flex-col">
+          <h3 class="font-semibold mb-1">
+            Seminar – Machine Learning for Congestion Control
+          </h3>
+          <p class="text-slate-500 mb-2">Apr 2023 – Jul 2023</p>
+          <p class="text-slate-600 flex-1">
+            Applied predictive ML algorithms to study congestion control schemes and compared them
+            with rule-based methods to understand trade-offs for engineering decisions.
+          </p>
+          <p class="mt-3 text-xs text-slate-500">
+            Focus: ML algorithms, networking, performance analysis
+          </p>
+        </article>
+
+        <!-- Digital Energy Defense Lab -->
+        <article class="border border-slate-200 rounded-2xl p-4 flex flex-col">
+          <h3 class="font-semibold mb-1">
+            Digital Energy Defense Laboratory
+          </h3>
+          <p class="text-slate-500 mb-2">Oct 2022 – Feb 2023</p>
+          <p class="text-slate-600 flex-1">
+            Built a Python-based anomaly detection and alerting system, performed diagnostics and
+            penetration testing, and produced structured validation reports.
+          </p>
+          <p class="mt-3 text-xs text-slate-500">
+            Focus: Python, security, anomaly detection
+          </p>
+        </article>
+
+        <!-- Bachelor Thesis -->
+        <article class="border border-slate-200 rounded-2xl p-4 flex flex-col">
+          <h3 class="font-semibold mb-1">
+            Bachelor Thesis – Wideband Balanced Bandpass Filter
+          </h3>
+          <p class="text-slate-500 mb-2">Chongqing University</p>
+          <p class="text-slate-600 flex-1">
+            Designed and simulated wideband balanced bandpass filters with common-mode suppression
+            using ADS, and validated performance through modeling and analysis.
+          </p>
+          <p class="mt-3 text-xs text-slate-500">
+            Tools: ADS, RF / analog circuit design
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 border-t border-slate-200">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-semibold">Contact Me</h2>
+      <p class="mt-3 text-slate-600 max-w-xl">
+        If you’d like to talk about opportunities, projects, or collaborations, feel free to reach out.
+      </p>
+
+      <div class="mt-6 grid md:grid-cols-2 gap-8 text-sm">
+        <div class="space-y-3">
+          <div>
+            <div class="font-medium">Email</div>
+            <a href="mailto:rui.wang1@rwth-aachen.de" class="text-slate-700 underline underline-offset-4">
+              rui.wang1@rwth-aachen.de
+            </a>
+          </div>
+          <div>
+            <div class="font-medium">Location</div>
+            <div class="text-slate-700">Aachen, Germany</div>
+          </div>
+          <div>
+            <div class="font-medium">Open to</div>
+            <div class="text-slate-700">Internships · Full-time roles in Python / AI / Energy Systems</div>
+          </div>
+        </div>
+
+        <form class="p-4 md:p-6 rounded-2xl border border-slate-200"
+              action="mailto:rui.wang1@rwth-aachen.de" method="post" enctype="text/plain">
+          <label class="block text-sm" for="name">Name</label>
+          <input id="name" name="name"
+                 class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2"
+                 required />
+
+          <label class="block text-sm mt-4" for="email">Email</label>
+          <input id="email" name="email" type="email"
+                 class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2"
+                 required />
+
+          <label class="block text-sm mt-4" for="message">Message</label>
+          <textarea id="message" name="message" rows="4"
+                    class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2"
+                    required></textarea>
+
+          <button class="mt-4 w-full rounded-xl bg-slate-900 text-white px-4 py-2 text-sm font-medium hover:bg-slate-800">
+            Send
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 border-t border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-slate-600">
       <div>© <span id="year"></span> Rui Wang</div>
       <div class="flex gap-4">
-        <a href="#about" class="underline underline-offset-4" data-i18n="footer.about">About</a>
-        <a href="#projects" class="underline underline-offset-4" data-i18n="footer.projects">Projects</a>
-        <a href="#contact" class="underline underline-offset-4" data-i18n="footer.contact">Contact</a>
+        <a href="#about" class="underline underline-offset-4">About Me</a>
+        <a href="#projects" class="underline underline-offset-4">Projects</a>
+        <a href="#contact" class="underline underline-offset-4">Contact</a>
       </div>
     </div>
   </footer>
 
   <script>
-    // ===== Theme =====
-    const root = document.documentElement;
-    const themeToggle = document.getElementById('themeToggle');
-    function setTheme(mode) {
-      if (mode === 'dark') {
-        root.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-        themeToggle.textContent = '☀️';
-      } else {
-        root.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-        themeToggle.textContent = '🌙';
-      }
-    }
-    themeToggle.addEventListener('click', () => {
-      setTheme(root.classList.contains('dark') ? 'light' : 'dark');
-    });
-    setTheme(localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
-
-    // ===== i18n (EN/DE) =====
-    const i18n = {
-      en: {
-        'nav.aboutme': 'About Me',
-        
-        'nav.projects': 'Projects',
-        'nav.publications': 'Publications',
-        'nav.contact': 'Contact',
-        'nav.hireme': 'Hire me',
-        'hero.title': 'Hi, I’m Rui Wang!',
-        'hero.subtitle': 'M.Sc. in Computer Engineering, RWTH Aachen. Working with Python for automation, modeling and data-driven workflows',
-        'hero.viewProjects': 'View Projects',
-        'hero.downloadCV': 'Download CV',
-        
-        'aboutme.title': 'About Me',
-        'aboutme.download': 'Download PDF',
-        'aboutme.education': 'Education',
-        'aboutme.experience': 'Experience',
-        'projects.title': 'Projects',
-        'pubs.title': 'Publications',
-        'pubs.note': 'Coming soon.',
-        'contact.title': 'Contact',
-        'contact.name': 'Name',
-        'contact.message': 'Message',
-        'contact.send': 'Send',
-        'contact.note': 'Prefer email? Reach me at ',
-        'contact.openTo': 'Internships · Full-time (AI/Power)',
-        'footer.about': 'About',
-        'footer.projects': 'Projects',
-        'footer.contact': 'Contact'
-      },
-      
-    };
-
-    const langSelect = document.getElementById('langSelect');
-    function applyI18n(lang) {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        const val = i18n[lang][key];
-        if (!val) return;
-        if (el.tagName.toLowerCase() === 'input' || el.tagName.toLowerCase() === 'textarea' || el.tagName.toLowerCase() === 'button') {
-          el.textContent = val;
-        } else {
-          if (key === 'contact.note') {
-            el.innerHTML = `${i18n[lang]['contact.note']}<a class=\"underline underline-offset-4\" href=\"mailto:rui.wang1@rwth-aachen.de\">rui.wang1@rwth-aachen.de</a>.`;
-          } else {
-            el.textContent = val;
-          }
-        }
-      });
-      localStorage.setItem('lang', lang);
-      //langSelect.value = lang;
-      document.documentElement.lang = lang === 'de' ? 'de' : 'en';
-    }
-
-    //langSelect.addEventListener('change', (e) => applyI18n(e.target.value));
-    applyI18n('en');
-
-    // Misc
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
