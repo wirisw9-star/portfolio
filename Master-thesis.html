@@ -130,10 +130,7 @@ investigation</h1>
     <!-- 上半部分：Feature extraction + 四个标签 -->
     <div class="border-2 border-blue-600 rounded-xl p-6 bg-blue-50 w-full">
       <h2 class="font-bold text-xl mb-3 text-blue-800">Feature extraction</h2>
-      <p class="text-sm mb-3">
-        Hover over a method to see its role and an example figure.
-      </p>
-
+     
       <!-- 四个方法标签：FFT / STFT / WT / ST -->
       <div class="flex flex-wrap gap-3">
         <button
@@ -187,9 +184,22 @@ investigation</h1>
   </div>
 `,
 cnn: `<h2 class='font-bold text-xl mb-3'>🧠 CNN Classification</h2><p>CNN is a deep learning model designed to automatically extract features from raw input data and classify them.</p>
-<img src="images/cnnresult.png"
-       alt="CNN result"
-       class="w-[450px] max-w-full mx-auto mt-3 rounded-xl shadow-md border" />`,
+<div class="w-full flex flex-col items-center gap-6">
+
+  <!-- 图片容器，清晰+放大 -->
+  <div class="w-[90%] max-w-4xl cursor-pointer transition hover:scale-[1.02]"
+       onclick="openModal('cnn-img')">
+
+    <img src="images/cnnresult.png" 
+         id="cnn-img"
+         class="rounded-xl shadow-lg w-full object-contain"
+         alt="CNN confusion matrix & t-SNE visualization"/>
+  </div>
+
+  <p class="text-sm text-gray-500">
+    🔍 Click to enlarge · Scroll inside to view details clearly
+  </p>
+</div>`,
         prediction: `<h2 class='font-bold text-xl mb-3'>📡 Real-time Prediction</h2><p>Kalman Filter (KF) offers real-time tracking of varying signals.</p>
          <img src="images/kf.png"
        alt="kf"
@@ -239,5 +249,28 @@ function clearFeatureMethod() {
   <div class="text-center mt-10 mb-10">
     <a href="index.html" class="text-indigo-600 font-semibold underline text-lg">⟵ Return to Home</a>
   </div>
+  <!-- ===== Modal Fullscreen Image Viewer ===== -->
+<div id="imgModal"
+     class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden justify-center items-center z-50"
+     onclick="closeModal()">
+
+  <img id="modalImg"
+       class="max-w-[92%] max-h-[92%] rounded-lg shadow-2xl border-2 border-white" />
+
+</div>
+
+<script>
+function openModal(id) {
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("modalImg");
+  modalImg.src = document.getElementById(id).src;
+  modal.classList.remove("hidden");
+}
+
+function closeModal() {
+  document.getElementById("imgModal").classList.add("hidden");
+}
+</script>
+
 </body>
 </html>
