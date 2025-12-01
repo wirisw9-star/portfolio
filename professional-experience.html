@@ -31,7 +31,7 @@
               Feb 2024 – Aug 2024 · Gifhorn, Germany
             </p>
           </div>
-          <span id="icon-intern" class="text-xl text-slate-500">−</span>
+          <span id="icon-intern" class="text-xl text-slate-500">+</span>
         </button>
 
         <!-- 展开内容区域：默认是展开的，但里面没有细节内容 -->
@@ -111,43 +111,45 @@
       const isHidden = panel.classList.contains('hidden');
 
       if (isHidden) {
+        // 由收起 -> 展开
         panel.classList.remove('hidden');
         icon.textContent = '−';
       } else {
+        // 由展开 -> 收起
         panel.classList.add('hidden');
-  icon.textContent = '+';
+        icon.textContent = '+';
 
-  // 如果是 Intern，大标签收起时顺便清空小标签内容和高亮
-  if (id === 'intern') {
-    const box = document.getElementById('intern-detail');
-    if (box) {
-      box.innerHTML = '';
-      box.dataset.open = '';
-    }
-    document.querySelectorAll('.intern-tab').forEach(tab => {
-      tab.classList.remove('border-indigo-500', 'bg-indigo-50', 'text-indigo-700');
-    });
-  
+        // 如果是 Intern，大标签收起时顺便清空小标签内容和高亮
+        if (id === 'intern') {
+          const box = document.getElementById('intern-detail');
+          if (box) {
+            box.innerHTML = '';
+            box.dataset.open = '';
+          }
+          document.querySelectorAll('.intern-tab').forEach(tab => {
+            tab.classList.remove('border-indigo-500', 'bg-indigo-50', 'text-indigo-700');
+          });
+        }
       }
     }
 
     // Intern 里三个小分类：Optera / GA / Libraries
     function showInternSection(key) {
-      const box = document.getElementById('intern-detail');
-  const tabs = document.querySelectorAll('.intern-tab');
+      const box  = document.getElementById('intern-detail');
+      const tabs = document.querySelectorAll('.intern-tab');
 
-  // 如果当前已经展开同一项 → 点击后收回
-  if (box.dataset.open === key) {
-    box.innerHTML = "";               // 清空内容
-    box.dataset.open = "";            // 状态清空
+      // 如果当前已经展开的是同一个 -> 再点一次就收回
+      if (box.dataset.open === key) {
+        box.innerHTML = '';
+        box.dataset.open = '';
 
-    // 取消高亮按钮
-    tabs.forEach(tab => {
-      tab.classList.remove("border-indigo-500", "bg-indigo-50", "text-indigo-700");
-    });
-    return;  // 结束，不再展开
-  }
+        tabs.forEach(tab => {
+          tab.classList.remove('border-indigo-500', 'bg-indigo-50', 'text-indigo-700');
+        });
+        return;
+      }
 
+      // 不同标签 -> 正常展开内容
       const content = {
         optera: `
           <div class="border-2 border-blue-600 rounded-xl p-4 bg-blue-50">
@@ -219,22 +221,21 @@
         `
       };
 
-      // 点击标签时更新右侧内容
-      box.innerHTML = content[key];
-      box.dataset.open = key; 
-      // 标签高亮状态
+      // 更新内容
+      box.innerHTML   = content[key];
+      box.dataset.open = key;
+
+      // 更新小标签高亮
       tabs.forEach(tab => {
-    const active = tab.dataset.intern === key;
-    tab.classList.toggle("border-indigo-500", active);
-    tab.classList.toggle("bg-indigo-50", active);
-    tab.classList.toggle("text-indigo-700", active);
-  });
+        const active = tab.dataset.intern === key;
+        tab.classList.toggle('border-indigo-500', active);
+        tab.classList.toggle('bg-indigo-50',     active);
+        tab.classList.toggle('text-indigo-700',  active);
+      });
     }
 
-    // 页面加载时：
+    // 页面加载时：什么都不展开，只在有 #electrical 时展开电气工程
     document.addEventListener('DOMContentLoaded', () => {
-      // 不主动显示任何 intern 细节，等你点击子标签
-      // 如果带 #electrical，就自动展开电气工程那一条
       if (location.hash === '#electrical') {
         togglePanel('electrical');
       }
