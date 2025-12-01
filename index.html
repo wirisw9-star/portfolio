@@ -44,49 +44,66 @@
   </header>
 
   <!-- Hero -->
-  <section id="home" class="py-16 md:py-24">
-    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-[3fr_2fr] gap-10 items-center">
-      <div class="md:pl-10 lg:pl-16">
-        <h1 class="text-3xl md:text-5xl font-bold leading-tight">
+  <!-- Hero -->
+<section id="home" class="py-12 md:py-20">
+  <div class="max-w-6xl mx-auto px-4">
+
+    <!-- 卡片容器 -->
+    <div class="rounded-3xl border border-slate-200 bg-slate-50/70 px-6 py-8 md:px-12 md:py-12
+                flex flex-col md:flex-row items-center md:items-center gap-10">
+
+      <!-- 左侧文字 -->
+      <div class="w-full md:w-3/5">
+        <h1 class="text-3xl md:text-5xl font-bold leading-tight text-slate-900">
           Hi, I’m Rui Wang!
         </h1>
-        <p class="mt-4 text-slate-600 max-w-xl leading-relaxed">
+
+        <p class="mt-4 text-slate-600 text-base md:text-lg leading-relaxed max-w-xl">
           M.Sc. in Electrical Engineering, RWTH Aachen University.<br />
-          I work with Python for automation, modeling, and data-driven workflows in power and electronic systems.
+          I work with Python for automation, modeling, and data-driven workflows in
+          power and electronic systems.
         </p>
 
-        <div class="mt-8 flex flex-wrap gap-3">
+        <div class="mt-7 flex flex-wrap gap-3">
           <a href="#projects"
              class="rounded-full bg-slate-900 text-white px-5 py-2 text-sm font-medium hover:bg-slate-800">
             View Projects
           </a>
           <a href="cv-RW.pdf"
-             class="rounded-full border border-slate-300 px-5 py-2 text-sm font-medium hover:bg-slate-50"
+             class="rounded-full border border-slate-300 px-5 py-2 text-sm font-medium hover:bg-slate-100"
              download>
             Download CV
           </a>
         </div>
 
-        <div class="mt-6 flex flex-wrap gap-6 text-sm">
-          <a href="https://www.linkedin.com/in/rui-wang-590155306/" class="underline underline-offset-4">
+        <div class="mt-5 flex flex-wrap gap-6 text-sm text-slate-700">
+          <a href="https://www.linkedin.com/in/rui-wang-590155306/"
+             class="underline underline-offset-4">
             LinkedIn
           </a>
-          <a href="mailto:rui.wang1@rwth-aachen.de" class="underline underline-offset-4">
+          <a href="mailto:rui.wang1@rwth-aachen.de"
+             class="underline underline-offset-4">
             rui.wang1@rwth-aachen.de
           </a>
         </div>
       </div>
 
-      <div class="flex justify-center md:justify-end">
-        <!-- Replace src with your own image file name -->
-        <img
-          src="images/myself.jpg"
-          alt="Rui Wang photo"
-          class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-xl"
-        />
+      <!-- 右侧头像 -->
+      <div class="w-full md:w-2/5 flex justify-center md:justify-end">
+        <div class="relative">
+          <div class="absolute inset-0 translate-x-3 translate-y-4 rounded-full bg-slate-200 blur-2xl opacity-70"></div>
+          <img
+            src="images/myself.jpg"
+            alt="Rui Wang photo"
+            class="relative w-40 h-40 md:w-56 md:h-56 rounded-full object-cover shadow-xl ring-4 ring-white"
+          />
+        </div>
       </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- About Me -->
   <section id="about" class="py-16 border-t border-slate-200">
