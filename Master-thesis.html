@@ -124,8 +124,71 @@
     </p>
   </div>
 `,
-        feature: `<h2 class='font-bold text-xl mb-3'>🧩 Feature Extraction</h2><p>FFT, STFT, WT, and S-transform are used to capture time-frequency signatures that distinguish different PQ disturbances.</p>`,
-        cnn: `<h2 class='font-bold text-xl mb-3'>🧠 CNN Classification</h2><p>2D CNN runs on HHT-based input images and automatically learns features. Provides high classification accuracy and robustness.</p>`,
+        feature: `
+  <div class="space-y-6">
+    <!-- 上半部分：Feature extraction + 四个标签 -->
+    <div class="border-2 border-blue-600 rounded-xl p-5 bg-blue-50">
+      <h2 class="font-bold text-xl mb-3 text-blue-800">Feature extraction</h2>
+      <p class="text-sm mb-3">
+        Hover over a method to see its role and an example figure.
+      </p>
+
+      <!-- 四个方法标签：FFT / STFT / WT / ST -->
+      <div class="flex flex-wrap gap-3">
+        <button
+          onmouseenter="showFeatureMethod('fft')"
+          onmouseleave="clearFeatureMethod()"
+          class="feature-tab px-3 py-1.5 rounded-full border text-sm text-slate-700
+                 hover:border-indigo-400 hover:bg-indigo-50 transition">
+          FFT
+        </button>
+        <button
+          onmouseenter="showFeatureMethod('stft')"
+          onmouseleave="clearFeatureMethod()"
+          class="feature-tab px-3 py-1.5 rounded-full border text-sm text-slate-700
+                 hover:border-indigo-400 hover:bg-indigo-50 transition">
+          STFT
+        </button>
+        <button
+          onmouseenter="showFeatureMethod('wt')"
+          onmouseleave="clearFeatureMethod()"
+          class="feature-tab px-3 py-1.5 rounded-full border text-sm text-slate-700
+                 hover:border-indigo-400 hover:bg-indigo-50 transition">
+          WT
+        </button>
+        <button
+          onmouseenter="showFeatureMethod('st')"
+          onmouseleave="clearFeatureMethod()"
+          class="feature-tab px-3 py-1.5 rounded-full border text-sm text-slate-700
+                 hover:border-indigo-400 hover:bg-indigo-50 transition">
+          ST
+        </button>
+      </div>
+
+      <!-- 悬停时出现的说明 + 图 -->
+      <div id="feature-detail" class="mt-4 text-sm text-slate-800 min-h-[200px]"></div>
+    </div>
+
+    <!-- 下半部分：SVM 介绍（文字 + 图片） -->
+    <div class="border-2 border-blue-600 rounded-xl p-5 bg-blue-50">
+      <h2 class="font-bold text-xl mb-3 text-blue-800">SVM</h2>
+      <div class="grid md:grid-cols-[1.2fr_1fr] gap-4 items-center">
+        <ul class="list-disc list-inside space-y-1 text-sm leading-relaxed">
+          <li>A supervised learning algorithm used for classification.</li>
+          <li>Works well with small to medium-sized datasets.</li>
+          <li>Effective for feature-based classification when features from FFT, WT and ST are used.</li>
+          <li>Requires manual feature extraction.</li>
+        </ul>
+        <img
+          src="images/svm.png"
+          alt="SVM classification illustration"
+          class="w-full max-w-[260px] mx-auto rounded-lg border shadow-sm"
+        />
+      </div>
+    </div>
+  </div>
+`,
+cnn: `<h2 class='font-bold text-xl mb-3'>🧠 CNN Classification</h2><p>2D CNN runs on HHT-based input images and automatically learns features. Provides high classification accuracy and robustness.</p>`,
         prediction: `<h2 class='font-bold text-xl mb-3'>📡 Real-time Prediction</h2><p>Sliding-window prediction pipeline that supports real-time signal streaming and PQ event detection.</p>`,
       };
 
@@ -148,6 +211,64 @@
     document.addEventListener('DOMContentLoaded', () => {
       showInfo('dataGen');
     });
+    function showFeatureMethod(key) {
+  const box = document.getElementById('feature-detail');
+  if (!box) return;
+
+  const detail = {
+    fft: `
+      <div class="border border-slate-300 rounded-xl bg-white p-4">
+        <h3 class="font-semibold mb-2">FFT</h3>
+        <p class="mb-3">
+          Convert a time-domain signal into its frequency-domain representation.
+        </p>
+        <img src="images/fft_example.png"
+             alt="FFT example"
+             class="w-full max-w-[420px] mx-auto rounded-lg border shadow-sm" />
+      </div>
+    `,
+    stft: `
+      <div class="border border-slate-300 rounded-xl bg-white p-4">
+        <h3 class="font-semibold mb-2">STFT</h3>
+        <p class="mb-3">
+          Analyze the signal in localized time windows in both time and frequency domain.
+        </p>
+        <img src="images/stft_example.png"
+             alt="STFT example"
+             class="w-full max-w-[420px] mx-auto rounded-lg border shadow-sm" />
+      </div>
+    `,
+    wt: `
+      <div class="border border-slate-300 rounded-xl bg-white p-4">
+        <h3 class="font-semibold mb-2">WT</h3>
+        <p class="mb-3">
+          Decompose a signal into different scales and time locations.
+        </p>
+        <img src="images/wt_example.png"
+             alt="Wavelet transform example"
+             class="w-full max-w-[420px] mx-auto rounded-lg border shadow-sm" />
+      </div>
+    `,
+    st: `
+      <div class="border border-slate-300 rounded-xl bg-white p-4">
+        <h3 class="font-semibold mb-2">ST</h3>
+        <p class="mb-3">
+          Hybrid of STFT and WT; automatically adapts the window size to the frequency content.
+        </p>
+        <img src="images/st_example.png"
+             alt="S-transform example"
+             class="w-full max-w-[420px] mx-auto rounded-lg border shadow-sm" />
+      </div>
+    `,
+  };
+
+  box.innerHTML = detail[key] || "";
+}
+
+function clearFeatureMethod() {
+  const box = document.getElementById('feature-detail');
+  if (box) box.innerHTML = "";
+}
   </script>
 
   <div class="text-center mt-10 mb-10">
