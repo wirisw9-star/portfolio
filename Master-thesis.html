@@ -128,7 +128,7 @@ investigation</h1>
         feature: `
   <div class="space-y-6">
     <!-- 上半部分：Feature extraction + 四个标签 -->
-    <div class="border-2 border-blue-600 rounded-xl p-6 bg-blue-50 w-[85%] mx-auto">
+    <div class="border-2 border-blue-600 rounded-xl p-6 bg-blue-50 w-full">
       <h2 class="font-bold text-xl mb-3 text-blue-800">Feature extraction</h2>
       <p class="text-sm mb-3">
         Hover over a method to see its role and an example figure.
@@ -186,7 +186,10 @@ investigation</h1>
     </div>
   </div>
 `,
-cnn: `<h2 class='font-bold text-xl mb-3'>🧠 CNN Classification</h2><p>2D CNN runs on HHT-based input images and automatically learns features. Provides high classification accuracy and robustness.</p>`,
+cnn: `<h2 class='font-bold text-xl mb-3'>🧠 CNN Classification</h2><p>CNN is a deep learning model designed to automatically extract features from raw input data and classify them.</p>
+<img src="images/cnnresult.png"
+       alt="CNN result"
+       class="w-[450px] max-w-full mx-auto mt-3 rounded-xl shadow-md border" />`,
         prediction: `<h2 class='font-bold text-xl mb-3'>📡 Real-time Prediction</h2><p>Sliding-window prediction pipeline that supports real-time signal streaming and PQ event detection.</p>`,
       };
 
