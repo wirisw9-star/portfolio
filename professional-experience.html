@@ -122,7 +122,19 @@
     // Intern 里三个小分类：Optera / GA / Libraries
     function showInternSection(key) {
       const box = document.getElementById('intern-detail');
-      const tabs = document.querySelectorAll('.intern-tab');
+  const tabs = document.querySelectorAll('.intern-tab');
+
+  // 如果当前已经展开同一项 → 点击后收回
+  if (box.dataset.open === key) {
+    box.innerHTML = "";               // 清空内容
+    box.dataset.open = "";            // 状态清空
+
+    // 取消高亮按钮
+    tabs.forEach(tab => {
+      tab.classList.remove("border-indigo-500", "bg-indigo-50", "text-indigo-700");
+    });
+    return;  // 结束，不再展开
+  }
 
       const content = {
         optera: `
@@ -197,14 +209,14 @@
 
       // 点击标签时更新右侧内容
       box.innerHTML = content[key];
-
+      box.dataset.open = key; 
       // 标签高亮状态
       tabs.forEach(tab => {
-        const active = tab.dataset.intern === key;
-        tab.classList.toggle("border-indigo-500", active);
-        tab.classList.toggle("bg-indigo-50", active);
-        tab.classList.toggle("text-indigo-700", active);
-      });
+    const active = tab.dataset.intern === key;
+    tab.classList.toggle("border-indigo-500", active);
+    tab.classList.toggle("bg-indigo-50", active);
+    tab.classList.toggle("text-indigo-700", active);
+  });
     }
 
     // 页面加载时：
