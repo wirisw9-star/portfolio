@@ -141,18 +141,7 @@
         panel.classList.add('hidden');
         icon.textContent = '+';
 
-        // 如果是 Intern，大标签收起时顺便清空小标签内容和高亮
-        if (id === 'intern') {
-          const box = document.getElementById('intern-detail');
-          if (box) {
-            box.innerHTML = '';
-            box.dataset.open = '';
-          }
-          document.querySelectorAll('.intern-tab').forEach(tab => {
-            tab.classList.remove('border-indigo-500', 'bg-indigo-50', 'text-indigo-700');
-          });
-        }
-      }
+
     }
 
     // Intern 里三个小分类：Optera / GA / Libraries
