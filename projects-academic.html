@@ -1,20 +1,4 @@
-<!-- ===================== GLOBAL NAVBAR ===================== -->
-<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200 dark:bg-slate-900 dark:border-slate-700">
-  <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-      
-      <!-- 站点名点击返回主页 -->
-      <a href="index.html#home" class="text-lg font-semibold">Rui Wang</a>
 
-      <nav class="flex items-center gap-8 text-sm font-medium">
-          <a href="index.html#home" class="hover:text-indigo-600">Home</a>
-          <a href="index.html#aboutme" class="hover:text-indigo-600">About Me</a>
-          <a href="index.html#projects" class="hover:text-indigo-600">Projects</a>
-          <a href="index.html#skills" class="hover:text-indigo-600">Skills</a>
-          <a href="index.html#contact" class="hover:text-indigo-600">Contact</a>
-      </nav>
-  </div>
-</header>
-<!-- ========================================================== -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,13 +51,36 @@
         </button>
 
         <div id="panel-seminar"
-             class="px-4 pb-4 pt-1 text-sm text-slate-700 border-t border-slate-100 hidden">
-          <!-- 之后填细节：背景、方法、结果等 -->
-          <p class="mt-2 text-slate-600">
-            Detailed description of the seminar project will go here (problem setting,
-            ML methods studied, key findings, etc.).
-          </p>
-        </div>
+     class="px-4 pb-4 pt-1 text-sm text-slate-700 border-t border-slate-100 hidden">
+
+  <!-- Seminar 子标签 -->
+  <div class="mt-4 flex flex-col gap-3 w-full max-w-sm">
+
+    <button type="button" data-seminar="overview" onclick="showSeminarSection('overview')"
+      class="seminar-tab border rounded-xl px-4 py-2 text-sm text-left font-medium text-slate-700
+             hover:border-indigo-400 hover:bg-indigo-50 transition">
+      Overview
+    </button>
+
+    <button type="button" data-seminar="ml" onclick="showSeminarSection('ml')"
+      class="seminar-tab border rounded-xl px-4 py-2 text-sm text-left font-medium text-slate-700
+             hover:border-indigo-400 hover:bg-indigo-50 transition">
+      ML-Based Methods
+    </button>
+
+    <button type="button" data-seminar="rl" onclick="showSeminarSection('rl')"
+      class="seminar-tab border rounded-xl px-4 py-2 text-sm text-left font-medium text-slate-700
+             hover:border-indigo-400 hover:bg-indigo-50 transition">
+      Reinforcement Learning
+    </button>
+
+  </div>
+
+  <!-- 具体内容区域 -->
+  <div id="seminar-detail" class="mt-4 space-y-6"></div>
+
+</div>
+
       </section>
 
       <!-- 2. Laboratory Project -->
@@ -165,6 +172,81 @@
         togglePanel(hash);
       }
     });
+    <script>
+function showSeminarSection(key) {
+  const box = document.getElementById('seminar-detail');
+  const tabs = document.querySelectorAll('.seminar-tab');
+
+  // 若点击同一个 → 收起
+  if (box.dataset.open === key) {
+    box.innerHTML = "";
+    box.dataset.open = "";
+    tabs.forEach(t => t.classList.remove("border-indigo-500", "bg-indigo-50", "text-indigo-700"));
+    return;
+  }
+
+  const content = {
+    overview: `
+      <div class="border-2 border-blue-600 rounded-xl p-4 bg-blue-50">
+        <h3 class="font-semibold text-base text-blue-800 mb-2">
+          Seminar Overview
+        </h3>
+        <p class="mb-2">
+          Studied classical TCP congestion control (Reno, CUBIC, BBR) and analyzed
+          their mechanisms including slow start, congestion avoidance, and recovery.
+        </p>
+        <p>
+          Learned how throughput, delay, packet loss, and fairness shape real-world network performance.
+        </p>
+      </div>
+    `,
+
+    ml: `
+      <div class="border-2 border-blue-600 rounded-xl p-4 bg-blue-50">
+        <h3 class="font-semibold text-base text-blue-800 mb-2">
+          Machine Learning-Based Approaches
+        </h3>
+        <p class="mb-2">
+          Reviewed learning-based congestion control algorithms such as REMY, Verus, PCC, and PCC Vivace.
+        </p>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Learned policy-based vs. performance-based rate adaptation.</li>
+          <li>Compared ML methods on throughput, delay stability, fairness, and adaptiveness.</li>
+        </ul>
+      </div>
+    `,
+
+    rl: `
+      <div class="border-2 border-blue-600 rounded-xl p-4 bg-blue-50">
+        <h3 class="font-semibold text-base text-blue-800 mb-2">
+          Reinforcement Learning for Congestion Control
+        </h3>
+        <p class="mb-2">
+          Studied RL-based algorithms (Aurora, QTCP, TCP-Drinc) and how they
+          formulate congestion control in terms of state, action, and reward.
+        </p>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Designed RL state representation from network statistics.</li>
+          <li>Understood reward-shaping challenges: delayed reward, fairness, stability.</li>
+          <li>Evaluated RL benefits in dynamic or wireless networks.</li>
+        </ul>
+      </div>
+    `
+  };
+
+  box.innerHTML = content[key];
+  box.dataset.open = key;
+
+  // 高亮标签
+  tabs.forEach(tab => {
+    const active = tab.dataset.seminar === key;
+    tab.classList.toggle("border-indigo-500", active);
+    tab.classList.toggle("bg-indigo-50", active);
+    tab.classList.toggle("text-indigo-700", active);
+  });
+}
+</script>
+
   </script>
 </body>
 </html>
